@@ -73,8 +73,15 @@ namespace ToDoList
             }
             else
             {
-                int textId = schedule.list.IndexOf(text);
-                schedule.list[textId] = newItem;
+                try
+                {
+                    int textId = schedule.list.IndexOf(text);
+                    schedule.list[textId] = newItem;
+                }
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    MessageBox.Show("Error" + ex.Message);
+                }
             }
         }
 
