@@ -60,7 +60,7 @@ namespace UnitTest
 
 
             //Assert
-            Assert.AreEqual(expectedList.Count, viewmodel.newList.Count);
+            Assert.AreEqual(expectedList.Count, viewmodel.schedule.list.Count);
 
         }
 

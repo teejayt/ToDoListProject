@@ -12,7 +12,7 @@ namespace ToDoList
 {
     public class ViewModel : INotifyPropertyChanged
     {
-        private Schedule schedule;
+        public Schedule schedule;
 
         private string _text;
         public string text

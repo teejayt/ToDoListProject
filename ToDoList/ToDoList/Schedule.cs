@@ -19,9 +19,9 @@ namespace ToDoList
         public Schedule()
         {
             list = new ObservableCollection<string>();
-            list.Add("Meeting Lunch");
-            list.Add("Interview");
-            list.Add("Yoga");
+            //list.Add("Meeting Lunch");
+            //list.Add("Interview");
+            //list.Add("Yoga");
         }
       
     }

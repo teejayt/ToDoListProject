@@ -24,11 +24,11 @@ namespace UnitTest
             viewmodel.AddItem(value);
 
             //Assert
-            Assert.AreEqual(expectedList.Count , viewmodel.newList.Count);
+            Assert.AreEqual(expectedList.Count , viewmodel.schedule.list.Count);
         }
 
         [TestMethod]
-        public void Test_AddItem_AddsOneItemWhenPassedMoreThanOneItem()
+        public void Test_AddItem_AddsMoreThanOneItemWhenPassedMoreThanOneItem()
         {
             //Arrange
             ViewModel viewmodel = new ViewModel();
@@ -45,7 +45,7 @@ namespace UnitTest
 
 
             //Assert
-            Assert.AreEqual(expectedList.Count, viewmodel.newList.Count);
+            Assert.AreEqual(expectedList.Count, viewmodel.schedule.list.Count);
         }
     }
 }
