@@ -50,9 +50,11 @@ namespace ToDoList
             {
                 MessageBox.Show("Enter a message");
             }
-            schedule.list.Add(text);
-           
-       
+            else
+            {
+                schedule.list.Add(text);
+
+            }
         }
 
         public void EditItem(string text)
@@ -61,9 +63,11 @@ namespace ToDoList
             {
                 MessageBox.Show("Enter an Item");
             }
-          int textId=schedule.list.IndexOf(text);
-          schedule.list[textId] = text;
-
+            else
+            {
+                int textId = schedule.list.IndexOf(text);
+                schedule.list[textId] = text;
+            }
         }
 
         public void MarkItem(string text)
@@ -77,7 +81,10 @@ namespace ToDoList
             {
                 MessageBox.Show("Enter a message");
             }
-           schedule.list.Remove(Convert.ToString(text));
+            else
+            {
+                schedule.list.Remove(Convert.ToString(text));
+            }
         }
 
         public void ViewItems()
