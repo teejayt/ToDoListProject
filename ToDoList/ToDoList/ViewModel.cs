@@ -80,8 +80,15 @@ namespace ToDoList
 
         public void MarkItem(string text)
         {
-            int textId = schedule.list.IndexOf(text);
-            schedule.list[textId] = text + "\t\t\t\t\t\t" + "completed";
+            try
+            {
+                int textId = schedule.list.IndexOf(text);
+                schedule.list[textId] = text + "\t\t\t" + "completed";
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Error:" + ex.Message);
+            }
         }
 
         public void RemoveItem(string text)
