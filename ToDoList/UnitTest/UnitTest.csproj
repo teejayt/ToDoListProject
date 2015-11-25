@@ -53,6 +53,12 @@
     <Compile Include="AddItemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ToDoList\ToDoList.csproj">
+      <Project>{0e3fdeec-5cda-4de4-90e3-8396d41f9256}</Project>
+      <Name>ToDoList</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

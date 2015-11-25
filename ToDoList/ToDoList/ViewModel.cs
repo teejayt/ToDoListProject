@@ -10,7 +10,6 @@ namespace ToDoList
     {
 
         private string _text;
-
         public string text
         {
             get { return _text; }

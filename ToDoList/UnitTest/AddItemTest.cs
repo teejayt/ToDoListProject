@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ToDoList;
 
 namespace UnitTest
 {
@@ -9,6 +10,14 @@ namespace UnitTest
         [TestMethod]
         public void Test_AddItem_AddsAnItemToTheListWhenGivenAnItem()
         {
+            //Arrange
+            ViewModel viewmodel = new ViewModel();
+
+            //Act
+            itemToBeAdded = viewmodel.AddItem("meeting");
+
+            //Assert
+            Assert.
 
         }
     }
