@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ToDoList
@@ -45,25 +46,38 @@ namespace ToDoList
 
         public void AddItem(string text)
         {
-            // newList.Add(text);
+            if (text == string.Empty)
+            {
+                MessageBox.Show("Enter a message");
+            }
             schedule.list.Add(text);
-           // newList = schedule.list;
+           
        
         }
 
         public void EditItem(string text)
         {
+            if (text == string.Empty)
+            {
+                MessageBox.Show("Enter an Item");
+            }
+          int textId=schedule.list.IndexOf(text);
+          schedule.list[textId] = text;
 
         }
 
         public void MarkItem(string text)
         {
-
+            text = text + "\t \t" + "completed";
         }
 
         public void RemoveItem(string text)
         {
-            newList.Remove(text);
+            if (text == string.Empty)
+            {
+                MessageBox.Show("Enter a message");
+            }
+           schedule.list.Remove(Convert.ToString(text));
         }
 
         public void ViewItems()
@@ -85,7 +99,7 @@ namespace ToDoList
             }
             set { _viewItemsCommand = value; }
         }
-
+        
         private ICommand _additemCommand;
         public ICommand additemCommand
         {
@@ -101,6 +115,51 @@ namespace ToDoList
             set { _additemCommand = value; }
         }
 
+        private ICommand _removeitemCommand;
+        public ICommand RemoveitemCommand
+        {
+            get
+            {
+                if (_removeitemCommand == null)
+                {
+                    _removeitemCommand = new Command<string>(RemoveItem, CanRemoveItems);
+                }
+
+                return _removeitemCommand;
+            }
+            set { _removeitemCommand = value; }
+        }
+
+        private ICommand _markitemCommand;
+        public ICommand MarkitemCommand
+        {
+            get
+            {
+                if (_markitemCommand == null)
+                {
+                    _markitemCommand = new Command<string>(MarkItem, CanMarkItems);
+                }
+
+                return _markitemCommand;
+            }
+            set { _markitemCommand = value; }
+        }
+
+
+        private ICommand _editItemsCommand;
+        public ICommand EditItemsCommand
+        {
+            get
+            {
+                if (_editItemsCommand == null)
+                {
+                    _editItemsCommand = new Command<string>(EditItem, CanEditItems);
+                }
+
+                return _editItemsCommand;
+            }
+            set { _editItemsCommand = value; }
+        }
         public bool CanViewItems()
         {
             return true;
@@ -111,6 +170,20 @@ namespace ToDoList
             return true;
         }
 
+        public bool CanRemoveItems(string item)
+        {
+            return true;
+        }
+
+        public bool CanMarkItems(string item)
+        {
+            return true;
+        }
+
+        public bool CanEditItems(string item)
+        {
+            return true;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)
