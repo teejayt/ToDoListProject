@@ -36,12 +36,13 @@ namespace UnitTest
             string value2 = "lunch";
             ObservableCollection<string> expectedList = new ObservableCollection<string>()
             {
-                value
+                value, value2
             };
 
             //Act
             viewmodel.AddItem(value);
             viewmodel.AddItem(value2);
+
 
             //Assert
             Assert.AreEqual(expectedList.Count, viewmodel.newList.Count);
