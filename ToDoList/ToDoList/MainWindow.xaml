@@ -1,11 +1,16 @@
 ﻿<Window x:Class="ToDoList.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:todolist="clr-namespace:ToDoList"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <todolist:ViewModel x:Key="TodoListKey"/>
+    </Window.Resources>
+    
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="195" Margin="26,79,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="375"/>
         <TextBox HorizontalAlignment="Left" Height="47" Margin="26,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="375"/>
-        <Button Content="Add" FontSize="18" ToolTip="Add To the TO DO LIST" HorizontalAlignment="Left" Margin="421,10,0,0" VerticalAlignment="Top" Width="86" Height="43"/>
+        <Button Content="Add" FontSize="18" ToolTip="Add To the TO DO LIST" Command="{Binding Path=text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   HorizontalAlignment="Left" Margin="421,10,0,0" VerticalAlignment="Top" Width="86" Height="43"/>
         <Button Content="Edit" FontSize="18" ToolTip="Edit the TO DO LIST" HorizontalAlignment="Left" Margin="421,198,0,0" VerticalAlignment="Top" Width="86" Height="43"/>
         <Button Content="Remove" FontSize="18" ToolTip="Remove from the TO DO LIST"  HorizontalAlignment="Left" Margin="421,136,0,0" VerticalAlignment="Top" Width="86" Height="43"/>
         <Button Content="Mark" FontSize="18" ToolTip="Mark Item on the TO DO LIST as Completed"  HorizontalAlignment="Left" Margin="421,74,0,0" VerticalAlignment="Top" Width="86" Height="43" RenderTransformOrigin="0.381,1.989"/>
