@@ -17,7 +17,7 @@ namespace UnitTest
 
             //Act
             viewmodel.newList = collection;
-            viewmodel.ViewItems();
+            viewmodel.viewItemsCommand.Execute(null);
 
             //Assert
             Assert.AreEqual(0,viewmodel.newList.Count);
