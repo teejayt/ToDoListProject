@@ -14,9 +14,8 @@
         <TextBox Name="ItemToAdd" HorizontalAlignment="Left" Height="43" Margin="26,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="375"/>
         <Button Content="Add" Command="{Binding additemCommand}" CommandParameter="{Binding Text, ElementName=ItemToAdd}" FontSize="18" ToolTip="Add To the TO DO LIST"   HorizontalAlignment="Left" Margin="421,10,0,0" VerticalAlignment="Top" Width="86" Height="43"/>
         <Button Content="Edit" Command="{Binding EditItemsCommand}" CommandParameter="{Binding SelectedItem, ElementName=listview}"  FontSize="18" ToolTip="Edit the TO DO LIST" HorizontalAlignment="Left" Margin="421,74,0,0" VerticalAlignment="Top" Width="86" Height="43"/>
-       <!-- CommandParameter="{MultiBinding SelectedItem, ElementName=listview}-->
         <Button Content="Remove" Command="{Binding RemoveitemCommand}" FontSize="18" ToolTip="Remove from the TO DO LIST"  HorizontalAlignment="Left" Margin="421,136,0,0" VerticalAlignment="Top" Width="86" Height="43"/>
-        <Button Content="Mark" Command="{Binding MarkitemCommand}"  CommandParameter="{Binding SelectedItem , ElementName=listview}" FontSize="18" ToolTip="Mark Item on the TO DO LIST as Completed"  HorizontalAlignment="Left" Margin="421,196,0,0" VerticalAlignment="Top" Width="86" Height="43" RenderTransformOrigin="0.381,1.989"/>
+        <Button Content="Mark" Command="{Binding MarkitemCommand}"  CommandParameter="{Binding SelectedItem , ElementName=listview, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="18" ToolTip="Mark Item on the TO DO LIST as Completed"  HorizontalAlignment="Left" Margin="421,196,0,0" VerticalAlignment="Top" Width="86" Height="43" RenderTransformOrigin="0.381,1.989"/>
         <Button Content="View" Command="{Binding viewItemsCommand}" FontSize="18" ToolTip="View the TO DO LIST" HorizontalAlignment="Left" Margin="421,263,0,0" VerticalAlignment="Top" Width="86" Height="43"/>
         <TextBox Text="{Binding newItem, Mode=TwoWay}" Name="EditTextbox" ToolTip="Enter Item to edit" HorizontalAlignment="Left" Height="43" Margin="26,63,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="375"/>
 

@@ -73,14 +73,15 @@ namespace ToDoList
             }
             else
             {
-               int textId = schedule.list.IndexOf(text);
+                int textId = schedule.list.IndexOf(text);
                 schedule.list[textId] = newItem;
             }
         }
 
         public void MarkItem(string text)
         {
-            text = text + "\t \t" + "completed";
+            int textId = schedule.list.IndexOf(text);
+            schedule.list[textId] = text + "\t\t\t\t\t\t" + "completed";
         }
 
         public void RemoveItem(string text)
