@@ -4,11 +4,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class AddItemTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Test_AddItem_AddsAnItemToTheListWhenGivenAnItem()
         {
+
         }
     }
 }
