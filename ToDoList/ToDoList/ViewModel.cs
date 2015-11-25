@@ -61,6 +61,7 @@ namespace ToDoList
             else
             {
                 schedule.list.Add(text);
+                MessageBox.Show(text + "has been added on the todo list");
 
             }
         }
