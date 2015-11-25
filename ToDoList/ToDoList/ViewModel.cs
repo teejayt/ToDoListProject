@@ -26,6 +26,14 @@ namespace ToDoList
             }
         }
 
+        private string _newItem;
+        public string newItem
+        {
+            get { return _newItem; }
+            set { _newItem = value; }
+        }
+        
+
         public ViewModel()
         {
             newList = new ObservableCollection<string>();
@@ -65,8 +73,8 @@ namespace ToDoList
             }
             else
             {
-                int textId = schedule.list.IndexOf(text);
-                schedule.list[textId] = text;
+               int textId = schedule.list.IndexOf(text);
+                schedule.list[textId] = newItem;
             }
         }
 

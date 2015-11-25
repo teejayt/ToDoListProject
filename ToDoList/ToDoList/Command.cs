@@ -99,4 +99,45 @@ namespace ToDoList
             CanExecuteChanged.Invoke(this, EventArgs.Empty);
         }
     }
+
+    public class Command<T,T2> : ICommand
+    {
+        private readonly Action<T,T2> _execute;
+        private readonly Func<T, bool> _canExecute;
+        public event EventHandler CanExecuteChanged;
+
+        public Command(Action<T,T2> execute, Func<T, bool> canexecute = null)
+        {
+            if (execute == null)
+                throw new ArgumentNullException("execute");
+            _execute = execute;
+            _canExecute = canexecute ?? (e => true);
+        }
+
+        [DebuggerStepThrough]
+        public bool CanExecute(object p)
+        {
+            try
+            {
+                var _Value = (T)Convert.ChangeType(p, typeof(T));
+                return _canExecute == null ? true : _canExecute(_Value);
+            }
+            catch { return false; }
+        }
+
+        public void Execute(object p)
+        {
+            if (!CanExecute(p))
+                return;
+            var _Value = (T)Convert.ChangeType(p, typeof(T));
+            var _Value1 = (T2)Convert.ChangeType(p, typeof(T2));
+            
+            _execute(_Value,_Value1);
+        }
+
+        public void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged.Invoke(this, EventArgs.Empty);
+        }
+    }
 }
