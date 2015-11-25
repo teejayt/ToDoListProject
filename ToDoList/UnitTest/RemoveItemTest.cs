@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ToDoList;
 using System.Collections.ObjectModel;
+using Moq;
 
 namespace UnitTest
 {
@@ -65,18 +66,25 @@ namespace UnitTest
 
         }
 
-        [TestMethod]
+ /*       [TestMethod]
          [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Test_RemoveItemThrowsAnExceptionWhenNoItemIsSelected_ReturnsAnExceptionOfTypeArgumentOutOfRangeException()
+        public void Test_RemoveItemThrowsAnExceptionWhenTheItemdoesnotexist_ReturnsAnExceptionOfTypeArgumentOutOfRangeException()
         {  
             //Arrange
+          //  ViewModel> viewmodel1 = new Mock<ViewModel>();
+           viewmodel = new ViewModel();
+            viewmodel.additemCommand.Execute("tola");
+              viewmodel.additemCommand.Execute("james");
+            viewmodel.additemCommand.Execute("dan");
 
             //Act
+            viewmodel.RemoveitemCommand.Execute("dan1");
 
             //Assert
+           
 
         }
-
+        */
 
         [TestCleanup]
         public void CleanUp()
