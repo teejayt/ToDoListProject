@@ -12,7 +12,7 @@ namespace ToDoList
 {
     public class ViewModel : INotifyPropertyChanged
     {
-        private Schedule schedule;
+        public Schedule schedule;
 
         private string _text;
         public string text
@@ -52,7 +52,7 @@ namespace ToDoList
             }
         }
 
-        public void AddItem(string text)
+        private void AddItem(string text)
         {
             if (text == string.Empty)
             {
@@ -61,12 +61,12 @@ namespace ToDoList
             else
             {
                 schedule.list.Add(text);
-                MessageBox.Show(text + "has been added on the todo list");
+              //  MessageBox.Show(text + "has been added on the todo list");
 
             }
         }
 
-        public void EditItem(string text)
+        private void EditItem(string text)
         {
             if (text == string.Empty)
             {
@@ -81,12 +81,12 @@ namespace ToDoList
                 }
                 catch (ArgumentOutOfRangeException ex)
                 {
-                    MessageBox.Show("Error" + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }
 
-        public void MarkItem(string text)
+        private void MarkItem(string text)
         {
             try
             {
@@ -95,11 +95,11 @@ namespace ToDoList
             }
             catch (ArgumentOutOfRangeException ex)
             {
-                MessageBox.Show("Error:" + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
-        public void RemoveItem(string text)
+        private void RemoveItem(string text)
         {
             if (text == string.Empty)
             {
@@ -107,11 +107,18 @@ namespace ToDoList
             }
             else
             {
-                schedule.list.Remove(Convert.ToString(text));
+                try
+                {
+                    schedule.list.Remove(Convert.ToString(text));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
             }
         }
 
-        public void ViewItems()
+        private void ViewItems()
         {
             newList = schedule.list;
         }

@@ -31,8 +31,8 @@ namespace UnitTest
             expectedList.Remove(value);
 
             //Act
-            viewmodel.AddItem(value);
-            viewmodel.RemoveItem(value);
+            viewmodel.additemCommand.Execute(value);
+            viewmodel.RemoveitemCommand.Execute(value);
 
             //Assert
             Assert.AreEqual(expectedList.Count, viewmodel.newList.Count);
@@ -52,22 +52,30 @@ namespace UnitTest
 
             //Act
             //Adds two schedules to the expectedList and the actual list in the viewmodel
-            viewmodel.AddItem(value);
-            viewmodel.AddItem(value2);
+            viewmodel.additemCommand.Execute(value);
+            viewmodel.additemCommand.Execute(value2);
+
             //Removes only one item
             expectedList.Remove(value);
-            viewmodel.RemoveItem(value);
+            viewmodel.RemoveitemCommand.Execute(value);
 
 
             //Assert
-            Assert.AreEqual(expectedList.Count, viewmodel.newList.Count);
+            Assert.AreEqual(expectedList.Count, viewmodel.schedule.list.Count);
 
         }
 
         [TestMethod]
-        // [ExpectedException]
-        //Arrange
+         [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void Test_RemoveItemThrowsAnExceptionWhenNoItemIsSelected_ReturnsAnExceptionOfTypeArgumentOutOfRangeException()
+        {  
+            //Arrange
 
+            //Act
+
+            //Assert
+
+        }
 
 
         [TestCleanup]
