@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ToDoList;
+using System.Collections.ObjectModel;
+using Moq;
 
 namespace UnitTest
 {
@@ -12,13 +14,17 @@ namespace UnitTest
         {
             //Arrange
             ViewModel viewmodel = new ViewModel();
+            string value = "meeting";
+            ObservableCollection<string> expectedList = new ObservableCollection<string>() 
+            {
+                value
+            };
 
             //Act
-            itemToBeAdded = viewmodel.AddItem("meeting");
+            viewmodel.AddItem(value);
 
             //Assert
-            Assert.
-
+            Assert.AreEqual(expectedList.Count , viewmodel.newList.Count);
         }
     }
 }
