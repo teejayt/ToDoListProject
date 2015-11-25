@@ -11,6 +11,7 @@ namespace ToDoList
 {
     public class ViewModel : INotifyPropertyChanged
     {
+        private Schedule schedule;
 
         private string _text;
         public string text
@@ -27,22 +28,27 @@ namespace ToDoList
         public ViewModel()
         {
             newList = new ObservableCollection<string>();
+            schedule = new Schedule();
         }
 
         private ObservableCollection<string> _newList;
         public ObservableCollection<string> newList
         {
             get { return _newList; }
-            set { _newList = value;
-            OnPropertyChanged("newList");
-            
+            set
+            {
+                _newList = value;
+                OnPropertyChanged("newList");
+
             }
         }
 
         public void AddItem(string text)
         {
-            newList.Add(text);
-            //  return newList;
+            // newList.Add(text);
+            schedule.list.Add(text);
+           // newList = schedule.list;
+       
         }
 
         public void EditItem(string text)
@@ -62,7 +68,7 @@ namespace ToDoList
 
         public void ViewItems()
         {
-         //  newList = //Call method to get items here 
+            newList = schedule.list;
         }
 
         private ICommand _viewItemsCommand;
@@ -104,7 +110,7 @@ namespace ToDoList
         {
             return true;
         }
-        
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)
