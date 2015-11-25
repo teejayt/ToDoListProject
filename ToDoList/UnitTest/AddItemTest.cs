@@ -21,7 +21,7 @@ namespace UnitTest
             };
 
             //Act
-            viewmodel.AddItem(value);
+            viewmodel.additemCommand.Execute(value);
 
             //Assert
             Assert.AreEqual(expectedList.Count , viewmodel.schedule.list.Count);
@@ -40,8 +40,8 @@ namespace UnitTest
             };
 
             //Act
-            viewmodel.AddItem(value);
-            viewmodel.AddItem(value2);
+            viewmodel.additemCommand.Execute(value);
+            viewmodel.additemCommand.Execute(value2);
 
 
             //Assert
